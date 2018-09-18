@@ -1,0 +1,63 @@
+body {
+    position: relative;
+}
+
+.banniere{
+    height: 700px;
+    background-color: #fff;
+    background-image: url(../images/backHomePage.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: black;
+    text-align: center;
+    padding-top: 15%;
+}
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.affix ~ .container-fluid {
+    position: relative;
+    top: 5px;
+}
+
+#section1 {
+    padding-top: 50px;
+    height: 500px;
+    color: #fff;
+    background-color: #1E88E5;
+}
+
+#section2 {
+    padding-top: 50px;
+    height: 500px;
+    color: #fff;
+    background-color: #673ab7;
+}
+
+#section3 {
+    padding-top: 50px;
+    height: 500px;
+    color: #fff;
+    background-color: #ff9800;
+}
+
+#section41 {
+    padding-top: 50px;
+    height: 500px;
+    color: #fff;
+    background-color: #00bcd4;
+}
+
+#section42 {
+    padding-top: 50px;
+    height: 500px;
+    color: #fff;
+    background-color: #009688;
+}

@@ -2,6 +2,36 @@ body {
     position: relative;
 }
 
+h1{
+    font-family: 'Lato', sans-serif;
+    font-size: 50px;
+}
+
+.titre{
+    text-align: left;
+    margin-left: 100px;
+    font-size: 70px;
+}
+
+.btn{
+    height: 80px;
+    width: 150px;
+    padding: .5rem;
+    background-color: transparent;
+    /*border: none;*/
+    border-color: black;
+    border-width: medium;
+    border-radius: 4px;
+    margin: 4px;
+    font-family: 'Noto Serif', serif;
+    float: left;
+    margin-left: 100px;
+}
+
+.btn:hover{
+
+}
+
 .banniere{
     height: 700px;
     background-color: #fff;
@@ -30,34 +60,23 @@ body {
 #section1 {
     padding-top: 50px;
     height: 500px;
-    color: #fff;
-    background-color: #1E88E5;
+    color: black;
+    background-color: #fff;
 }
 
 #section2 {
     padding-top: 50px;
     height: 500px;
-    color: #fff;
-    background-color: #673ab7;
+    color: black;
+    background-color: #fff;
+    /*background-image: url(../images/pattern.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;*/
 }
 
 #section3 {
     padding-top: 50px;
     height: 500px;
-    color: #fff;
-    background-color: #ff9800;
-}
-
-#section41 {
-    padding-top: 50px;
-    height: 500px;
-    color: #fff;
-    background-color: #00bcd4;
-}
-
-#section42 {
-    padding-top: 50px;
-    height: 500px;
-    color: #fff;
-    background-color: #009688;
+    color: black;
+    background-color: #fff;
 }

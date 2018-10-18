@@ -1,6 +1,4 @@
 <?php require "../layout.php"; ?>
-
-
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/fondAnime.css">
 
@@ -14,29 +12,29 @@
      
       <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       
-      <h1 class="h3 mb-3 font-weight-normal">S'inscrire</h1>
-      
-      <label for="inputEmail" class="sr-only">Nom</label>
-      <input type="text" id="nom" class="form-control" placeholder="Nom" required autofocus>
-      
-      <label for="inputEmail" class="sr-only">Prénom</label>
-      <input type="text" id="prenom" class="form-control" placeholder="Prénom" required autofocus>
-      
+      <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
+
       <label for="inputEmail" class="sr-only">Adresse mail</label>
       <input type="email" id="mail" class="form-control" placeholder="Mail" required autofocus>
       
-      <label for="inputPassword" class="sr-only">Confirmation de l'adresse mail</label>
-      <input type="email" id="password" class="form-control" placeholder="Confirmation Mail" required>
       
-      <br>
+      <label for="inputEmail" class="sr-only">Mot de passe</label>
+      <input type="password" id="password" class="form-control" placeholder="Mot de passe" required autofocus>
       
-      <button class=" btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      
+      <button class=" btn-lg btn-primary btn-block" type="submit">Se connecter</button>
       
     </form>
 </div>
-    
-<!--- FIN FORMULAIRE ---><!--- DÉBUT FOND ANIMÉ --->   
 
+<!--- FIN FORMULAIRE ---><!--- DÉBUT FOND ANIMÉ --->        
+    
+    
     <div class="moon"></div>
 
     <div class="skyline">

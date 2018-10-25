@@ -31,8 +31,13 @@
       </div>
       
       <button class=" btn-lg btn-primary btn-block" type="submit">Se connecter</button>
-      
+          <p>
+        Pour se connecter en administrateur : 
+        <br>
+        mail : admin@admin.com  mdp : admin
+    </p>
     </form>
+
 </div>
 
 <!--- FIN FORMULAIRE ---><!--- DÉBUT FOND ANIMÉ --->        

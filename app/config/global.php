@@ -15,6 +15,7 @@ define('BASE_URL', '/parking_vrai/');
 define('CSS_PATH', BASE_URL . 'css/');
 define('JS_PATH', BASE_URL . 'js/');
 define('IMG_PATH', BASE_URL . 'images/');
+define('DOC_PATH', BASE_URL . 'files/');
 
 // Accès de connection à la base de données
 define('DB_USERNAME', 'root');

@@ -15,7 +15,7 @@
 				<p>
 					Nous prenons en charge votre stationnement en vous trouvant la place de parking gratuite la plus proche de votre destination !
 					<br>
-					Pour plus de renseignement <a href="<?= IMG_PATH ?>Documentation.pdf" target="_blank">cliquez ici</a> pour accéder à la documentation du site.
+					Pour plus de renseignement <a href="<?= DOC_PATH ?>Documentation.pdf" target="_blank">cliquez ici</a> pour accéder à la documentation du site.
 				</p>
 
 			</div>

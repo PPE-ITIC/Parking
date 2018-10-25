@@ -129,7 +129,7 @@ class PersonneController extends BaseController
         }
     }
 
-    public function deconnexion()
+    public function deconnexionAction()
     {
         unset($_SESSION['personne']);
         header("Location: ".BASE_URL);

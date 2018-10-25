@@ -9,8 +9,8 @@
 	<div id="section1" class="container-fluid">
 		<div class="row">
 			<div class="col-md-6">
-				<h1>Le concept</h1>
-				<p>Votre place de parking à porté de main !</p>
+				<h1><b>Le concept</b></h1>
+				<h2>Votre place de parking à porté de main !</h2>
 				<br>
 				<p>
 					Nous prenons en charge votre stationnement en vous trouvant la place de parking gratuite la plus proche de votre destination !
@@ -18,7 +18,7 @@
 
 			</div>
 			<div class="col-md-6 imgAnimate">
-				<img src="../images/voiture.jpg" style="height:250px;width:500px;">
+				<img src="<?= IMG_PATH ?>voiture.jpg" style="height:250px;width:500px;">
 			</div>
 		</div>
 	</div>
@@ -26,20 +26,21 @@
 		<div class="row">
 			<div class="col-md-4 col-md-offset-2">
 				<div class="card block">
-					<div class="card-body block">
-						<img src="../images/logoVoiture.jpg" style="height:120px;width:120px;">
+					<div class="card-body block" style="height:400px;width:350px;color: black;background-color:#fff; ">
+						<img src="<?= IMG_PATH ?>logoVoiture.jpg" style="height:120px;width:120px;">
 						<br><br>
-						<p class="card-text">Ensemble, trouvons la place idéale pour votre véhicule !</p>
+						<p class="card-text" style="font-size:20px";>Ensemble, trouvons la place idéale pour votre véhicule !</p><br><br>
 						<a href="#" class="btn-section-3">S'incrire</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="card block">
-					<div class="card-body block" style="height:400px;width:350px;color:white;background-color:#fff; ">
-						<img src="../images/logoConfiance.jpg" style="height:120px; width:120px;">
+					<div class="card-body block" style="height:400px;width:350px;color:black;background-color:#fff; ">
+						<img src="<?= IMG_PATH ?>logoConfiance.jpg" style="height:120px; width:120px;">
 						<br><br>
-						<p class="card-text">Vous nous faîtes déjà confiance ?</p>
+						<p class="card-text" style="font-size:20px">Vous nous faîtes déjà confiance ?</p>
+						<br><br>
 						<a href="#" class="btn-section-3">Connexion</a>
 					</div>
 				</div>

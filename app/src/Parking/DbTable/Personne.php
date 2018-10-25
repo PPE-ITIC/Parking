@@ -81,7 +81,7 @@ class Personne
     public function findByStatut($id_s)
     {
         $sql = $this->getSqlPersonne();
-        $sql .= ' WHERE personne.id_s = ' . (int)$id_s;
+        $sql .= ' WHERE personne.id_s = ' . (int)$id_s . ' ORDER BY attente.ordre';
         $query = $this->getDb()->query($sql);
         $result = $query->fetchAll(\PDO::FETCH_ASSOC);
         $personnes = array();
@@ -116,7 +116,7 @@ class Personne
         {
             $attente = new \Parking\Attente();
             $attente->setId($row['id_attente'])
-                    ->setDate($row['date']);
+                    ->setOrdre($row['ordre']);
             $personne->setAttente($attente);
         }
 

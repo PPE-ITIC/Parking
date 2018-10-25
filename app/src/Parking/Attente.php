@@ -5,7 +5,7 @@ namespace Parking;
 class Attente
 {
     private $id;
-    private $date;
+    private $ordre;
     private $personne;
 
     /**
@@ -28,14 +28,14 @@ class Attente
     /**
      * @return mixed
      */
-    public function getDate()
+    public function getOrdre()
     {
-        return $this->date;
+        return $this->ordre;
     }
 
-    public function setDate($date)
+    public function setOrdre($ordre)
     {
-        $this->date = $date;
+        $this->ordre = (int) $ordre;
         return $this;
     }
 

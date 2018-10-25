@@ -1,0 +1,31 @@
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>                        
+					</button>
+		  <a class="navbar-brand" href="<?= BASE_URL ?>"><img src="<?= IMG_PATH ?>logoVoiture.jpg" alt="LoveCar" style="height:5px;width:5px;"></a>
+			   
+		</div>
+		<div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="#section1">Le concept</a></li>
+                    <?php if (isset($data['personne'])): ?>
+                        <li><a href="<?= BASE_URL ?>user">Perso</a></li>
+                        <?php if ($data['personne']->isAdmin()): ?>
+                            <li><a href="<?= BASE_URL ?>admin">Admin</a></li>
+                        <?php endif; ?>
+                        <li><a href="<?= BASE_URL ?>deconnexion">Déconnexion</a></li>
+                    <?php else: ?>
+                        <li><a href="<?= BASE_URL ?>login">Connexion</a></li>
+                        <li><a href="<?= BASE_URL ?>register">S'inscrire</a></li>
+                    <?php endif; ?>
+					<li><a href="#section3">Avis</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>

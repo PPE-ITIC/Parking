@@ -9,6 +9,7 @@ class Personne
     private $prenom;
     private $mail;
     private $password;
+    private $isAdmin;
     private $statut;
     private $attente;
     private $reservations = array();
@@ -95,6 +96,26 @@ class Personne
     public function setPassword($password)
     {
         $this->password = $password;
+        return $this;
+    }
+    
+    public function isAdmin($db = false)
+    {
+        if ($db)
+            return $this->isAdmin;
+        
+        if ($this->isAdmin === 1)
+        {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    public function setIsAdmin($isAdmin)
+    {
+        $this->isAdmin = (int) $isAdmin;
+        return $this;
     }
 
     /**

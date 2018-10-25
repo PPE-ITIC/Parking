@@ -12,9 +12,9 @@ namespace Parking\DbTable;
  * 
  */
 
-use \Db\Connexion\Pdo;
+use Ipf\Db\Connection\Pdo;
 
-class Personne
+class Place
 {
     private $db;
 

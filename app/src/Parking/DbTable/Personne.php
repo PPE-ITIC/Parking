@@ -12,9 +12,9 @@ namespace Parking\DbTable;
  * 
  */
 
-use \Db\Connexion\Pdo;
+use Ipf\Db\Connection\Pdo;
 
-class Place
+class Personne
 {
     private $db;
 
@@ -53,6 +53,46 @@ class Place
 
         return null;
     }
+    
+    public function findByMail($mail)
+    {
+        $sql = $this->getSqlPersonne();
+        $sql .= ' WHERE personne.mail = "' . (string)$mail . '"';
+        $query = $this->getDb()->query($sql);
+        $result = $query->fetch(\PDO::FETCH_ASSOC);
+        if ($result)
+            return $this->rowToObject($result);
+
+        return null;
+    }
+
+    public function connexion($mail,$password)
+    {
+        $sql = $this->getSqlPersonne();
+        $sql .= ' WHERE mail="' . $mail . '" AND password="' . sha1($password) .'"';
+        $query = $this->getDb()->query($sql);
+        $result = $query->fetch(\PDO::FETCH_ASSOC);
+        if ($result)
+            return $this->rowToObject($result);
+
+        return null;
+    }
+    
+    public function findByStatut($id_s)
+    {
+        $sql = $this->getSqlPersonne();
+        $sql .= ' WHERE personne.id_s = ' . (int)$id_s;
+        $query = $this->getDb()->query($sql);
+        $result = $query->fetchAll(\PDO::FETCH_ASSOC);
+        $personnes = array();
+        $i = 0;
+        foreach($result as $p)
+        {
+            $personnes[$i] = $this->rowToObject($p);
+            $i++;
+        }
+        return $personnes;
+    }
 
     public function rowToObject(array $row)
     {
@@ -61,7 +101,8 @@ class Place
                  ->setNom($row['nom'])
                  ->setPrenom($row['prenom'])
                  ->setMail($row['mail'])
-                 ->setPassword($row['password']);
+                 ->setPassword($row['password'])
+                 ->setIsAdmin($row['is_admin']);
 
         if (isset($row['id_statut']))
         {
@@ -87,6 +128,27 @@ class Place
         }
 
         return $personne;
+    }
+    
+    public function update(\Parking\Personne $personne)
+    {
+        $stmt = 'UPDATE personne SET nom      = :nom,
+                                     prenom   = :prenom,
+                                     mail     = :mail,
+                                     password = :password,
+                                     is_admin = :is_admin,
+                                     id_s     = :id_s
+                               WHERE id       = :id';            
+        $query = $this->getDb()->prepare($stmt);
+        return $query->execute(array(
+                    'nom'      => $personne->getNom(),
+                    'prenom'   => $personne->getPrenom(),
+                    'mail'     => $personne->getMail(),
+                    'password' => sha1($personne->getPassword()),
+                    'is_admin' => $personne->isAdmin(true),
+                    'id_s'     => $personne->getStatut()->getId(),
+                    'id'       => $personne->getId()
+        ));
     }
 
     protected function getSqlPersonne()

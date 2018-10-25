@@ -1,6 +1,4 @@
-<?php require "../layout.php"; ?>
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/fondAnime.css">
+<?php include_once 'header.phtml'; ?>
 
 
 <!--- DÉBUT FORMULAIRE --->
@@ -88,3 +86,4 @@
 
 
 <!--- FIN FOND ANIMÉ --->
+<?php include_once 'footer.phtml'; ?>

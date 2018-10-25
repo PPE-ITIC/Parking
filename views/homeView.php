@@ -1,5 +1,5 @@
 <?php require "../layout.php"; ?>
-<script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
+<!-- <script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>-->
 <div class="container-fluid banniere">
     <h1 id="titre" class="titre titreAnimate"><b>Votre place de parking<br>à porté de main</b></h1>
     <br>

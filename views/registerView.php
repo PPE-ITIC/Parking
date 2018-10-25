@@ -1,8 +1,4 @@
-<?php require "../layout.php"; ?>
-
-
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/fondAnime.css">
+<?php include_once 'header.phtml'; ?>
 
 
 <!--- DÉBUT FORMULAIRE --->
@@ -10,23 +6,20 @@
 <div class="voiture">
     <div class="container formulaire" style="background-color:transparent;">
 
-    <form class="form-signin" method="POST">
+    <form class="form-signin" method="POST" action="<?= BASE_URL.'inscription'?>">
      
       <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-      
+    
+      <?php if (isset($_SESSION['inscription_error'])): ?>
+      <div id="inscription-error" class="alert alert-danger"><?= $_SESSION['inscription_error'] ?></div>
+      <?php endif; ?>
       <h1 class="h3 mb-3 font-weight-normal">S'inscrire</h1>
       
-      <label for="inputEmail" class="sr-only">Nom</label>
-      <input type="text" id="nom" class="form-control" placeholder="Nom" required autofocus>
-      
-      <label for="inputEmail" class="sr-only">Prénom</label>
-      <input type="text" id="prenom" class="form-control" placeholder="Prénom" required autofocus>
-      
       <label for="inputEmail" class="sr-only">Adresse mail</label>
-      <input type="email" id="mail" class="form-control" placeholder="Mail" required autofocus>
-      
-      <label for="inputPassword" class="sr-only">Confirmation de l'adresse mail</label>
-      <input type="email" id="password" class="form-control" placeholder="Confirmation Mail" required>
+      <input type="email" id="mail" name="mail" class="form-control" placeholder="Mail" value="<?= isset($_SESSION['mail']) ? $_SESSION['mail'] : "" ?>" required autofocus>
+        
+      <label for="inputPassword" class="sr-only">Mot de passe</label>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
       
       <br>
       
@@ -90,3 +83,4 @@
 
 
 <!--- FIN FOND ANIMÉ --->
+<?php include_once 'footer.phtml'; ?>

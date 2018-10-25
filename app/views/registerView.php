@@ -8,10 +8,11 @@
 
     <form class="form-signin" method="POST" action="<?= BASE_URL.'inscription'?>">
      
-      <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <img class="mb-4" src="<?= IMG_PATH ?>LogoLoveCar-Noir.jpg" alt="" width="72" height="72" style="border-radius:90%;margin-left:35%;">
+      <br>
     
       <?php if (isset($_SESSION['inscription_error'])): ?>
-      <div id="inscription-error" class="alert alert-danger"><?= $_SESSION['inscription_error'] ?></div>
+        <div id="inscription-error" class="alert alert-danger"><?= $_SESSION['inscription_error'] ?></div>
       <?php endif; ?>
       <h1 class="h3 mb-3 font-weight-normal">S'inscrire</h1>
       

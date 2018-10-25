@@ -6,18 +6,23 @@
 <div class="voiture">
     <div class="container formulaire" style="background-color:transparent;">
 
-    <form class="form-signin" method="POST">
+    <form class="form-signin" method="POST" action="<?= BASE_URL.'connexion'?>">
      
-      <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <img class="mb-4" src="<?= IMG_PATH ?>LogoLoveCar-Blanc.jpg" alt="" width="72" height="72" style="border-radius:90%;margin-left:35%;">
+      <br>
+
+      <?php if (isset($_SESSION['connexion_error'])): ?>
+        <div id="connexion-error" class="alert alert-danger"><?= $_SESSION['connexion_error'] ?></div>
+      <?php endif; ?>
       
       <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
 
       <label for="inputEmail" class="sr-only">Adresse mail</label>
-      <input type="email" id="mail" class="form-control" placeholder="Mail" required autofocus>
+      <input type="email" id="mail" name="mail" class="form-control" placeholder="Mail" value="<?= isset($_SESSION['mail']) ? $_SESSION['mail'] : "" ?>" required autofocus>
       
       
       <label for="inputEmail" class="sr-only">Mot de passe</label>
-      <input type="password" id="password" class="form-control" placeholder="Mot de passe" required autofocus>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" required autofocus>
       
       <div class="checkbox mb-3">
         <label>

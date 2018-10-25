@@ -14,7 +14,7 @@
       <?php if (isset($_SESSION['inscription_error'])): ?>
         <div id="inscription-error" class="alert alert-danger"><?= $_SESSION['inscription_error'] ?></div>
       <?php endif; ?>
-      <h1 class="h3 mb-3 font-weight-normal">S'inscrire</h1>
+      <h1 class="h3 mb-3 font-weight-normal">S'inscrire<sup>*</sup></h1>
       
       <label for="inputEmail" class="sr-only">Adresse mail</label>
       <input type="email" id="mail" name="mail" class="form-control" placeholder="Mail" value="<?= isset($_SESSION['mail']) ? $_SESSION['mail'] : "" ?>" required autofocus>
@@ -26,7 +26,15 @@
       
       <button class=" btn-lg btn-primary btn-block" type="submit">Sign in</button>
       
+    <br>   
+      
     </form>
+    
+    <p>
+    <sup>*</sup> Votre inscription devra être validée par l'administrateur auquel cas vous ne pourrez pas avoir accès à votre espace personnel.
+    Suite à la validation, vous devrez changer votre mot de passe.
+    </p>
+    
 </div>
     
 <!--- FIN FORMULAIRE ---><!--- DÉBUT FOND ANIMÉ --->   

@@ -91,6 +91,22 @@ class Reservation
 
         return $reservation;
     }
+    
+        public function findHisto()
+    {
+        $sql = $this->getSqlReservation();
+        $sql .= ' WHERE date_fin <= CURRENT_DATE() ORDER BY date_fin DESC';
+        $query = $this->getDb()->query($sql);
+        $result = $query->fetchAll(\PDO::FETCH_ASSOC);
+        $reservations = array();
+        $i = 0;
+        foreach($result as $r)
+        {
+            $reservations[$i] = $this->rowToObject($r);
+            $i++;
+        }
+        return $reservations;
+    }
 
     protected function getSqlReservation()
     {

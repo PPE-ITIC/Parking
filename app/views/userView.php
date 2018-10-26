@@ -3,9 +3,6 @@
     
 <div class="container">   
 
-<?php echo 'Bonjour '.$data['personne']->getPrenom().' '.$data['personne']->getNom(); ?>
-<?php echo 'Statut '.$data['personne']->getStatut()->getLibelle(); ?>
-
 
 <!-- TABLEAU DE FONCTION : DÉBUT --->
 

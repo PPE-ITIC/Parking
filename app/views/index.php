@@ -32,7 +32,7 @@
 						<img src="<?= IMG_PATH ?>logoVoiture.jpg" style="height:120px;width:120px;">
 						<br><br>
 						<p class="card-text" style="font-size:20px";>Ensemble, trouvons la place idéale pour votre véhicule !</p><br><br>
-						<a href="#" class="btn-section-3">S'incrire</a>
+						<a href="<?= BASE_URL ?>register" class="btn-section-3">S'incrire</a>
 					</div>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 						<br><br>
 						<p class="card-text" style="font-size:20px">Vous nous faîtes déjà confiance ?</p>
 						<br><br>
-						<a href="#" class="btn-section-3">Connexion</a>
+						<a href="<?= BASE_URL ?>login" class="btn-section-3">Connexion</a>
 					</div>
 				</div>
 			</div>

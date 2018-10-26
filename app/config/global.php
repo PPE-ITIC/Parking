@@ -28,7 +28,7 @@ define('DB_DSN', sprintf('mysql:host=%s;dbname=%s;',
     DB_NAME
 ));
 
-//TMP à mettre en dynamique avec accès en table
+
 define('NI_ID', 1);
 define('INV_ID', 2);
 define('IV_ID', 3);

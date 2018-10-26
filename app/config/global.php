@@ -11,7 +11,7 @@ define('CTRL_PATH', APP_PATH . 'controllers' . DS);
 define('VIEWS_PATH', APP_PATH . 'views' . DS);
 
 // Base urls
-define('BASE_URL', '/parking_vrai/');
+define('BASE_URL', '/Parking/');
 define('CSS_PATH', BASE_URL . 'css/');
 define('JS_PATH', BASE_URL . 'js/');
 define('IMG_PATH', BASE_URL . 'images/');

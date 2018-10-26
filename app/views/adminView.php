@@ -138,7 +138,7 @@
 
         <div id="HISTORIQUE" class="tab-pane fade">
             <h3>Consulte l'historique des demandes</h3>
-            <?php if (empty($data['reservations'])) : ?>
+            <?php if (empty($data['reservation'])) : ?>
                 <h4>Aucun Historique</h4>
             <?php else : ?>
             <table class="table table-hover">
@@ -151,23 +151,17 @@
                     <th scope="col">Date Fin</th>
                 </tr>
                 </thead>
-                <tbody>
-                <?php foreach ($data['reservations'] as $reservation) : ?>
+                <tbody>  
+                <?php foreach ($data['reservation'] as $reservation) : ?>
+                <?php //var_dump($reservation);die; ?>
                     <tr>
-                        <td><?= $reservation->getPlace()->getLibelle()?></td>
+                        <td><?= $reservation->getPlace()->getNumero()?></td>
                         <td><?= $reservation->getPersonne()->getNom()?></td>
                         <td><?= $reservation->getPersonne()->getPrenom()?></td>
-                        <td><?= $reservation->getDebutt()?></td>
+                        <td><?= $reservation->getDebut()?></td>
                         <td><?= $reservation->getFin()?></td>
                     </tr>
                 <?php endforeach; ?>    
-                <tr>
-                    <td>Place</td>
-                    <td>Nom</td>
-                    <td>Prénom</td>
-                    <td>Date Début</td>
-                    <td>Date Fin</td>
-                </tr>
                 </tbody>
             </table>
             <?php endif; ?>

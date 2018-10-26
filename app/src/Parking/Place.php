@@ -21,9 +21,14 @@ class Place
     
     public function setNumero($numero)
     {
-        $this->numero = (string) $numero;
+        $this->numero = (int) $numero;
         return $this;
     }
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+ 
     
     public function getEtage()
     {

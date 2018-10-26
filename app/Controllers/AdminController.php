@@ -22,8 +22,12 @@ class AdminController extends BaseController
                 $data['users'] = $users;
                 $attentes = $crudPersonne->findByStatut(IA_ID);
                 $data['attentes'] = $attentes;
+                $crudReservation = new Parking\DbTable\Reservation($this->connection);
+                $reservation = $crudReservation->findHisto();
+                $data['reservation'] = $reservation;                            
                 $this->setView('adminView');
                 $this->render($data);
+
             }
             else
             {
@@ -156,7 +160,42 @@ class AdminController extends BaseController
             $this->render();
         }
     }
+     public function attribuerAction($params)
+    {
+        if (isset($_SESSION['personne']) && is_object (unserialize($_SESSION['personne'])) && get_class(unserialize($_SESSION['personne'])) == 'Parking\Personne')
+        {
+            $personne = unserialize($_SESSION['personne']);
+            if ($personne->isAdmin())
+            {
+                $crudPersonne = new Parking\DbTable\Personne($this->connection);
+                $personne = $crudPersonne->find($params['id']);
 
+                if ($personne)
+                {
+                    $crudStatut = new Parking\DbTable\Statut($this->connection);
+                    $statut = $crudStatut->find(V_ID);
+                    $personne->setStatut($statut);
+                    $crudPersonne->update($persUpd);
+                }
+                $_SESSION['onglet'] = "historique";
+                header("Location: ".BASE_URL."admin");
+                exit;
+            }
+            else
+            {
+                $_SESSION['connexion_error'] = "Vous devez vous connecter à votre compte admin pour accéder à cette page";
+            }
+        }
+        else
+        {
+            $_SESSION['connexion_error'] = "Vous devez vous connecter pour accéder à cette page";
+        }
+        if (isset($_SESSION['connexion_error']))
+        {
+            $this->setView('attributeView');
+            $this->render();
+        }
+    }
     public function descendreAction($params)
     {
         if (isset($_SESSION['personne']) && is_object (unserialize($_SESSION['personne'])) && get_class(unserialize($_SESSION['personne'])) == 'Parking\Personne')

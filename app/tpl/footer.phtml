@@ -1,8 +1,12 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
         <script src="<?= JS_PATH ?>app.js"></script>
-        <?php if (isset($data['onglet'])) : ?>
-            <script>active_onglet("<?= $data['onglet'] ?>");</script>
+        <?php if (isset($_SESSION['onglet'])) : ?>
+            <script>active_onglet("<?= $_SESSION['onglet'] ?>");</script>
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION['onglet_user'])) : ?>
+            <script>active_onglet_user("<?= $_SESSION['onglet_user'] ?>");</script>
         <?php endif; ?>
 
     </body>

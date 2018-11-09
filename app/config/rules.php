@@ -10,6 +10,7 @@ if (!isset($_SESSION['router']))
     $router->addRule('deconnexion', array('controller' => 'personne', 'action' => 'deconnexion'));
     $router->addRule('admin', array('controller' => 'admin', 'action' => 'index'));
     $router->addRule('user', array('controller' => 'personne', 'action' => 'index'));
+    $router->addRule('demander', array('controller' => 'personne', 'action' => 'demander'));
     $router->addRule('valider/:id', array('controller' => 'admin', 'action' => 'valider'));
     $router->addRule('refuser/:id', array('controller' => 'admin', 'action' => 'refuser'));
     $router->addRule('monter/:id', array('controller' => 'admin', 'action' => 'monter'));

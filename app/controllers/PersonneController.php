@@ -126,6 +126,41 @@ class PersonneController extends BaseController
             $_SESSION['connexion_error'] = "Vous devez vous connecter pour accéder à cette page";
             $this->setView('loginView');
             $this->render();
+            exit();
+        }
+    }
+
+    public function demanderAction()
+    {
+        if (isset($_SESSION['personne']) && is_object (unserialize($_SESSION['personne'])) && get_class(unserialize($_SESSION['personne'])) == 'Parking\Personne')
+        {
+            $data['personne'] = unserialize($_SESSION['personne']);
+            $crudPersonne = new Parking\DbTable\Personne($this->connection);
+            $crudStatut = new Parking\DbTable\Statut($this->connection);
+            $crudAttente = new Parking\DbTable\Attente($this->connection);
+            $attente = $crudAttente->findLast();
+            $ordre = $attente->getOrdre() + 1;
+            $attente->setOrdre($ordre);
+            $attente->setPersonne($data['personne']);
+            $crudAttente->add($attente);
+            $statut = $crudStatut->find(IA_ID);
+            $data['personne']->setStatut($statut);
+            $data['personne']->setAttente($attente);
+            $crudPersonne->update($data['personne']);
+            $_SESSION['onglet_user'] = "place";
+            $this->setView('userView');
+            $this->render($data);
+            exit();
+        }
+        else
+        {
+            $_SESSION['connexion_error'] = "Vous devez vous connecter pour accéder à cette page";
+        }
+        if (isset($_SESSION['connexion_error']))
+        {
+            $this->setView('loginView');
+            $this->render();
+            exit();
         }
     }
 

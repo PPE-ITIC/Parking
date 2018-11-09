@@ -9,30 +9,36 @@
 <div class="col-md-9">  
 <ul class="nav nav-tabs">
  
-  <li class="active"><a data-toggle="tab" href="#DEMANDE">DEMANDE</a></li>
-  <li><a data-toggle="tab" href="#HISTORIQUE">MON HISTORIQUE</a></li>
-  <li><a data-toggle="tab" href="#PARAMETRES">PARAMÈTRES</a></li>
+  <li id="place" class="active"><a data-toggle="tab" href="#PLACE">MA PLACE</a></li>
+  <li id="historique_user"><a data-toggle="tab" href="#HISTORIQUE_USER">MON HISTORIQUE</a></li>
+  <li id="parametres"><a data-toggle="tab" href="#PARAMETRES">PARAMÈTRES</a></li>
 
 </ul>
 
 <div class="tab-content">
 
 <!-- ESPACE DEMANDE DE PLACE : DÉBUT --->
- 
-  <div id="DEMANDE" class="tab-pane fade in active">
-    <h3>Faire une demande de place</h3>
-    <p>Remplissez le formulaire pour effectuer votre demande.</p>
-    <form>
-        <input type="text" value="date">
-        <input type="text" value="durée">
-        <input type="text" value="">
-        <input type="button" value="Valider">
-    </form>
+
+  <div id="PLACE" class="tab-pane fade in active">
+      <?php if ($data['personne']->getStatut()->getId() == IOK_ID) : ?>
+          <h3>Vous possédez une place</h3>
+          <p><?= $data['personne']->getReservation(0)->getPlace()->getNumero() ?></p>
+      <?php else: ?>
+          <?php if ($data['personne']->getStatut()->getId() == IA_ID) : ?>
+              <h3>Votre rang dans la liste d'attente</h3>
+              <p><?= $data['personne']->getAttente()->getOrdre() ?></p>
+          <?php else: ?>
+              <h3>Demandez votre place</h3>
+              <a href="<?= BASE_URL ?>demander" style="text-decoration:none;">
+                  <input type="button" value="C'est içi">
+              </a>
+          <?php endif; ?>
+      <?php endif; ?>
   </div>
   
 <!-- ESPACE DEMANDE DE PLACE : FIN ; ESPACE HISTORIQUE : DÉBUT --->
   
-  <div id="HISTORIQUE" class="tab-pane fade">
+  <div id="HISTORIQUE_USER" class="tab-pane fade">
     <h3>Mon historique personnel</h3>
     <p>Voici l'historique des places qui vont ont été attriubées depuis votre inscription.</p>
     <table class="table table-hover">
@@ -73,29 +79,5 @@
 
 </div>
 
-<!-- TABLEAU DE FONCTION : FIN --->
-
-
-<!-- ESPACE À GAUCHE : DÉBUT -->
-
-<div class="col-md-3">
-  
-   <!-- CAS OÙ L'USER À UNE PLACE ATTRIBUÉE -->
-   
-    <p>Ma place</p>
-    <p>NuméroPlace</p>
-    
-   <!-- - CAS OÙ L'USER EST EN LISTE D'ATTENTE -->
-   
-   <p>Mon rang dans la file d'attente</p>
-   <p>NumRang</p>
-   
-</div>
-
-<!-- ESPACE À GAUCHE : FIN -->
-
-<a href="">Se déconnecter</a>
-
-</div> 
 
 <?php include_once 'footer.phtml'; ?>

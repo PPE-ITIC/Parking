@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 26 Octobre 2018 à 16:04
+-- Généré le :  Jeu 25 Octobre 2018 à 14:44
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -28,20 +28,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `attente` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id Attente',
-  `ordre` int(11) unsigned NOT NULL COMMENT 'numéro d''ordre',
+  `date` date NOT NULL COMMENT 'date attente',
   `id_pe` int(11) unsigned NOT NULL COMMENT 'id Personne',
   PRIMARY KEY (`id`),
   KEY `fk_pe` (`id_pe`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `attente`
 --
 
-INSERT INTO `attente` (`id`, `ordre`, `id_pe`) VALUES
-(1, 2, 2),
-(2, 1, 7),
-(3, 3, 5);
+INSERT INTO `attente` (`id`, `date`, `id_pe`) VALUES
+(1, '2018-10-17', 1);
 
 -- --------------------------------------------------------
 
@@ -59,26 +57,24 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `id_s` int(11) unsigned NOT NULL COMMENT 'statut',
   PRIMARY KEY (`id`),
   KEY `fk_st` (`id_s`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `personne`
 --
 
 INSERT INTO `personne` (`id`, `nom`, `prenom`, `mail`, `password`, `is_admin`, `id_s`) VALUES
-(1, 'BOUNABI', 'Arslane', 'arslanebounabi@hotmail.fr', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 3),
-(2, 'ERARD-SANKA', 'StÃ©phane', 'stephane.erard@free.fr', 'f17d2280e7b4a3b24dab82559e0befd412085993', 0, 4),
-(3, 'Leponge', 'Bob', 'bob.leponged@free.fr', '7c3bd49c77a8eb43725a44c60c595c9181b6b084', 0, 2),
-(4, 'Tyrion', 'Lanister', 'tyrionlanisterd@free.fr', '7c3bd49c77a8eb43725a44c60c595c9181b6b084', 0, 5),
-(5, 'Papin', 'Jean-pierre', 'jean.pierred@free.fr', '05d1e1c4d9c3b9e59424e2e572b4cfbe3e23b65a', 0, 4),
-(6, 'Darth', 'Vador', 'darth.vd@free.fr', '7c3bd49c77a8eb43725a44c60c595c9181b6b084', 0, 2),
-(7, 'Auditore', 'Ezio', 'Ezio.audid@free.fr', '05d1e1c4d9c3b9e59424e2e572b4cfbe3e23b65a', 0, 4),
-(8, 'Hellscreem', 'Grom', 'Grom.H@free.fr', '05d1e1c4d9c3b9e59424e2e572b4cfbe3e23b65a', 0, 6),
-(9, 'DC', 'Rasalghul', 'DCRSA@free.fr', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 0, 3),
-(10, 'Redfield', 'Chris', 'Red.Chrisd@free.fr', '12e9293ec6b30c7fa8a0926af42807e929c1684f', 0, 1),
-(11, 'Candy', 'Man', 'Candy.man@free.fr', '381a49c72ee0ef7848458e82af868458917271d1', 0, 1),
-(12, 'THIVET', 'AMANDINE', 'thivet.amandine@free.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 1, 3),
-(13, 'admin', 'admin', 'admin@admin.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 3);
+(1, 'BOUNABI', 'Arslane', 'admin@admin.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 3),
+(2, 'ERARD-SANKA', 'StÃ©phane', 'stephane.erard@free.fr', '05d1e1c4d9c3b9e59424e2e572b4cfbe3e23b65a', 0, 3),
+(3, 'ERARD-SANKA', 'Bob', 'bob.erard@free.fr', '7c3bd49c77a8eb43725a44c60c595c9181b6b084', 0, 2),
+(4, 'ERARD-SANKA', 'Etienne', 'etienne.erard@free.fr', '7c3bd49c77a8eb43725a44c60c595c9181b6b084', 0, 2),
+(5, 'ERARD-SANKA', 'Marina', 'marina.erard@free.fr', '05d1e1c4d9c3b9e59424e2e572b4cfbe3e23b65a', 0, 3),
+(6, 'ERARD-SANKA', 'Shayna', 'shayna.erard@free.fr', '7c3bd49c77a8eb43725a44c60c595c9181b6b084', 0, 2),
+(7, 'ERARD', 'Romain', 'romain.erard@free.fr', '05d1e1c4d9c3b9e59424e2e572b4cfbe3e23b65a', 0, 6),
+(8, 'ERARD', 'Florent', 'florent.erard@free.fr', '05d1e1c4d9c3b9e59424e2e572b4cfbe3e23b65a', 0, 6),
+(9, 'ERARD', 'Carole', 'carole.erard@free.fr', NULL, 0, 1),
+(10, 'ERARD', 'Jean', 'jean.erard@free.fr', NULL, 0, 1),
+(11, 'ERARD', 'Marie', 'marie.erard@free.fr', NULL, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -123,9 +119,9 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 --
 
 INSERT INTO `reservation` (`id`, `date_debut`, `date_fin`, `id_pe`, `id_pl`) VALUES
-(1, '2018-10-01', '2018-10-25', 1, 1),
-(2, '2018-09-03', '2018-09-05', 9, 1),
-(3, '2018-10-26', '2018-10-31', 4, 2);
+(1, '2018-10-01', '2018-10-05', 1, 1),
+(2, '2018-10-08', '2018-10-11', 1, 2),
+(3, '2018-10-08', '2018-10-11', 2, 2);
 
 -- --------------------------------------------------------
 

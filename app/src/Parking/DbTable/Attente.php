@@ -51,6 +51,43 @@ class Attente
         return null;
     }
 
+    public function findAfter($ordre)
+    {
+        $sql = $this->getSqlAttente();
+        $sql .= ' WHERE ordre > ' . (int)$ordre;
+        $query = $this->getDb()->query($sql);
+        $result = $query->fetchAll(\PDO::FETCH_ASSOC);
+        $attentes = array();
+        $i = 0;
+        foreach($result as $a)
+        {
+            $attentes[$i] = $this->rowToObject($a);
+            $i++;
+        }
+        return $attentes;
+    }
+
+    public function delete(\Parking\Attente $attente)
+    {
+        $stmt = 'DELETE FROM attente WHERE id = :id)';
+        $query = $this->getDb()->prepare($stmt);
+        return $query->execute(array(
+            'id'  => $attente->getId()
+        ));
+    }
+
+    public function findLast()
+    {
+        $sql = $this->getSqlAttente();
+        $sql .= ' ORDER BY ordre DESC';
+        $query = $this->getDb()->query($sql);
+        $result = $query->fetch(\PDO::FETCH_ASSOC);
+        if ($result)
+            return $this->rowToObject($result);
+
+        return null;
+    }
+
     public function update(\Parking\Attente $attente)
     {
         $stmt = 'UPDATE attente SET ordre = :ordre,
@@ -61,6 +98,19 @@ class Attente
             'ordre' => $attente->getOrdre(),
             'id_pe' => $attente->getPersonne()->getId(),
             'id'    => $attente->getId()
+        ));
+    }
+
+    public function add(\Parking\Attente $attente)
+    {
+        $stmt = 'INSERT INTO attente ( ordre,
+                                       id_pe)
+                                  VALUES (:ordre,
+                                          :id_pe)';
+        $query = $this->getDb()->prepare($stmt);
+        return $query->execute(array(
+            'ordre'  => $attente->getOrdre(),
+            'id_pe'  => $attente->getPersonne()->getId()
         ));
     }
 

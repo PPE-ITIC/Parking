@@ -91,11 +91,11 @@ class Reservation
 
         return $reservation;
     }
-    
-        public function findHisto()
+
+    public function findHisto()
     {
         $sql = $this->getSqlReservation();
-        $sql .= ' WHERE date_fin <= CURRENT_DATE() ORDER BY date_fin DESC';
+        $sql .= ' WHERE date_fin < CURRENT_DATE() ORDER BY date_fin DESC';
         $query = $this->getDb()->query($sql);
         $result = $query->fetchAll(\PDO::FETCH_ASSOC);
         $reservations = array();
@@ -111,7 +111,7 @@ class Reservation
     protected function getSqlReservation()
     {
         $sql = 'SELECT *,
-                      reservation.id as id_reservation,
+                       reservation.id as id_reservation,
                        personne.id as id_personne,
                        place.id as id_place
                 FROM reservation

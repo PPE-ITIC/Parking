@@ -21,7 +21,7 @@ class Place
     
     public function setNumero($numero)
     {
-        $this->numero = (int) $numero;
+        $this->numero = $numero;
         return $this;
     }
     public function getNumero()

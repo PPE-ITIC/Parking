@@ -1,3 +1,5 @@
+i
+
 <?php
 
 // Chemin d'application
@@ -18,10 +20,10 @@ define('IMG_PATH', BASE_URL . 'images/');
 define('DOC_PATH', BASE_URL . 'files/');
 
 // Accès de connection à la base de données
-define('DB_USERNAME', 'root');
+define('DB_USERNAME', '');
 define('DB_PASSWORD', '');
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'parking');
+define('DB_HOST', '');
+define('DB_NAME', '');
 define('DB_ENCODING', 'UTF8');
 define('DB_DSN', sprintf('mysql:host=%s;dbname=%s;', 
     DB_HOST,
